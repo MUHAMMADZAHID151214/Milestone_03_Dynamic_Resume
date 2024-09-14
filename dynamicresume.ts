@@ -1,8 +1,7 @@
-// TypeScript to generate the resume dynamically
-function generateResume(event: Event): void {
-  event.preventDefault(); // Prevent form from refreshing the page
 
-  // Grab user inputs
+function generateResume(event: Event): void {
+  event.preventDefault(); 
+  
   const fullName = (document.getElementById("fullName") as HTMLInputElement)
     .value;
   const email = (document.getElementById("email") as HTMLInputElement).value;
@@ -16,14 +15,11 @@ function generateResume(event: Event): void {
     document.getElementById("skills") as HTMLInputElement
   ).value.split(", ");
 
-  // Find the resume container where the resume will be generated
   const resumeContainer = document.getElementById("generated-resume");
 
   if (resumeContainer) {
-    // Clear any previous resume content
     resumeContainer.innerHTML = "";
 
-    // Dynamically generate resume content
     resumeContainer.innerHTML = `
         <div class="resume-container">    
         <div class="sidebar">
@@ -66,7 +62,6 @@ function generateResume(event: Event): void {
   }
 }
 
-// Attach the event listener to the form
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("resume-form");
   if (form) {
